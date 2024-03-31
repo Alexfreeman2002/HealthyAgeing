@@ -1,7 +1,48 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <div class="full-width padding">
+    <div class="news-container" id="news-container">
+      <button class="one">
+        <a href="{{ url_for('news.news') }}">Explore more
+        </a>
+        <img src="/static/resources/arrow.svg">
+      </button>
+      {% for article in articles %}
+      <div class="news-box content">
+        <b><a href="{{ article.link }}">{{ article.title }}</a></b><br>
+        <span>{{ article.published }}</span>
+        <p>{{ article.summary }}</p>
+      </div>
+      {% endfor %}
+    </div>
 
-<h1 class="title">Fitness and Nutrition plans in aid of healthy ageing</h1>
+    <ul class="feature-quick-access">
+      <li>
+        <button class="two">
+          <img src="/static/resources/weight.svg" alt="bmi">
+          <a href="{{ url_for('health') }}">Fitness Advice</a>
+        </button>
+      </li>
+      <li>
+        <button class="two">
+          <img src="/static/resources/calculator.svg" alt="calculator">
+          <a href="{{ url_for('health') }}">Nutrition Advice</a>
+        </button>
+      </li>
+      <li>
+        <button class="two">
+          <img src="/static/resources/meal.svg" alt="calorie">
+          <a href="{{ url_for('health') }}">Create Meal Plan</a>
+        </button>
+      </li>
+      <li>
+        <button class="two">
+          <img src="/static/resources/period.svg" alt="period">
+          <a href="{{ url_for('health') }}">Create Fitness Plan</a>
+        </button>
+      </li>
+    </ul>
+  </div>
 
 {% endblock %}

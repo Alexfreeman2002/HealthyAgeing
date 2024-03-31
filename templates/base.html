@@ -2,45 +2,83 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Healthy Ageing</title>
+  <script src="/static/scripts/scripts.js" defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Alexander Freeman">
+  <meta name="description" content="website to provide health information for the older generation">
+  <meta name="keywords" content="health, ageing, fitness, nutrition">
+  <meta name="width" content="device-width">
+  <meta name="height" content="device-height">
+  <link rel="stylesheet" href="/static/css/main.css"/>
+  <title>Healthy Ageing Plans</title>
+  <link rel="icon" href="/static/resources/logo.svg"/>
 </head>
 
+<nav class="full-width">
+  <div class="nav">
+    <img src="/static/resources/logo.svg" alt="Organisation Logo" class="logo">
+    <a href="{{ url_for('index') }}" class="title"><h2>Healthy Ageing Plans</h2></a>
+    <ul class="nav-desktop">
+      <li><a href="{{ url_for('index') }}" class="link nav-hover">Home</a></li>
+      <li><a href="{{ url_for('news.news') }}" class="link nav-hover">News</a></li>
+      <li><a href="{{ url_for('health') }}" class="link nav-hover">Fitness Advice</a></li>
+      <li><a href="{{ url_for('health') }}" class="link nav-hover">Nutrition Advice</a></li>
+      <li class="dropdown">
+        <a href="#" class="link nav-hover">Customised Plan</a>
+        <ul class="dropdown-list">
+          <li><a href="{{ url_for('health') }}" class="link nav-hover">Create Meal Plan</a></li>
+          <li><a href="{{ url_for('health') }}" class="link nav-hover">Create Fitness Plan</a></li>
+        </ul>
+        <div class="dropdown-icon"></div>
+      </li>
+    </ul>
+    <form class="search-bar" method="POST" action="{{ url_for('search.search_disease') }}">
+        <input type="text" name="search_term" placeholder="Search...">
+    </form>
+    <div class="menu-icon">
+      <span class="one"></span>
+      <span class="two"></span>
+    </div>
+  </div>
+  <div id="nav-mobile" class="nav-mobile">
+    <ul>
+      <li><a href="{{ url_for('index') }}" class="link nav-hover">Home</a></li>
+      <li><a href="{{ url_for('news.news') }}" class="link nav-hover">News</a></li>
+      <li><a href="{{ url_for('health') }}" class="link nav-hover">Fitness Advice</a></li>
+      <li><a href="{{ url_for('health') }}" class="link nav-hover">Nutrition Advice</a></li>
+      <li class="dropdown">
+        <a href="#" class="link nav-hover">Customised Plan</a>
+        <ul class="dropdown-list">
+          <li><a href="{{ url_for('health') }}" class="link nav-hover">Create Meal Plan</a></li>
+          <li><a href="{{ url_for('health') }}" class="link nav-hover">Create Fitness Plan</a></li>
+        </ul>
+        <div class="dropdown-icon"></div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 <body>
-
-    <style>
-    .table {
-      margin-left: auto;
-      margin-right: auto;
-    }
-    </style>
-
-    <section class="hero is-primary is-fullheight">
-
-        <div class="hero-head">
-            <nav class="navbar">
-                <div class="container">
-
-                    <div id="navbarMenuHeroA" class="navbar-menu">
-                       <div class="navbar-end">
-                            <a href="{{ url_for('index') }}" class="navbar-item">
-                               Home
-                            </a>
-                       </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
-
-        <div class="hero-body">
-            <div class="container has-text-centered">
-               {% block content %}
-               {% endblock %}
-            </div>
-        </div>
-    </section>
+  {% block content %}
+  {% endblock %}
 </body>
+<footer>
+    <div class="footer-section">
+      <a href="{{ url_for('index') }}" class="title"><h3>Healthy Ageing Plans</h3></a>
+      <p>@Copyright 2024<p>
+    </div>
 
+    <div class="footer-section">
+      <a href="mailto:healthyageinghub24@gmail.com" target="_blank"><h3>Contact us</h3></a>
+      <p>Email: healthyageinghub24@gmail.com</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Follow us</h3>
+      <a href="https://www.instagram.com/" target="_blank"><img src="/static/resources/instagram.png"></a>
+      <a href="https://twitter.com/" target="_blank"><img src="/static/resources/X.png"></a>
+      <a href="https://www.facebook.com/" target="_blank"><img src="/static/resources/facebook.png"></a>
+    </div>
+</footer>
 </html>

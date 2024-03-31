@@ -1,3 +1,9 @@
 Flask
 flask_sqlalchemy
 flask_talisman
+flask_wtf
+python-dotenv
+feedparser
+bs4
+requests
+flask-talisman
