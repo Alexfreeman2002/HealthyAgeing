@@ -3,11 +3,12 @@
 {% block content %}
   <div class="full-width padding">
     <div class="news-container" id="news-container">
+      <form action="{{ url_for('news.news') }}">
       <button class="one">
-        <a href="{{ url_for('news.news') }}">Explore more
-        </a>
+        <a>Explore more</a>
         <img src="/static/resources/arrow.svg">
       </button>
+        </form>
       {% for article in articles %}
       <div class="news-box content">
         <b><a href="{{ article.link }}">{{ article.title }}</a></b><br>
@@ -19,28 +20,36 @@
 
     <ul class="feature-quick-access">
       <li>
+        <form action="{{ url_for('health') }}">
         <button class="two">
-          <img src="/static/resources/weight.svg" alt="bmi">
-          <a href="{{ url_for('health') }}">Fitness Advice</a>
+          <a>Fitness Advice</a>
+          <img src="/static/resources/weight.svg" alt="Weight">
         </button>
+        </form>
       </li>
       <li>
+        <form action="{{ url_for('health') }}">
         <button class="two">
-          <img src="/static/resources/calculator.svg" alt="calculator">
-          <a href="{{ url_for('health') }}">Nutrition Advice</a>
+          <a>Nutrition Advice</a>
+          <img src="/static/resources/meal.svg" alt="Cutlery">
         </button>
+        </a>
       </li>
       <li>
+        <form action="{{ url_for('health') }}">
         <button class="two">
-          <img src="/static/resources/meal.svg" alt="calorie">
-          <a href="{{ url_for('health') }}">Create Meal Plan</a>
+          <a>Create Meal Plan</a>
+          <img src="/static/resources/meal-plan.svg" alt="Meal Calender">
         </button>
+        </form>
       </li>
       <li>
+        <form action="{{ url_for('health') }}">
         <button class="two">
-          <img src="/static/resources/period.svg" alt="period">
-          <a href="{{ url_for('health') }}">Create Fitness Plan</a>
+          <a>Create Fitness Plan</a>
+          <img src="/static/resources/fitness-plan.svg" alt="Fitness Calender">
         </button>
+          </form>
       </li>
     </ul>
   </div>
