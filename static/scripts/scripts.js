@@ -1,5 +1,5 @@
-function speakText() {
-    var text = document.getElementById("content1").innerText;
+function speakText(elementId) {
+    var text = document.getElementById(elementId).innerText;
 
     // Create a new instance of SpeechSynthesisUtterance
     var utterance = new SpeechSynthesisUtterance(text);
