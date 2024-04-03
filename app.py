@@ -48,11 +48,12 @@ def health():
 # BLUEPRINTS
 from News.views import news_blueprint
 from SearchDiseases.views import search_blueprint
+from FitnessQuestions.views import fitness_blueprint
 
 # Register blueprints
 app.register_blueprint(news_blueprint)
 app.register_blueprint(search_blueprint)
-
+app.register_blueprint(fitness_blueprint)
 
 # Error handlers
 @app.errorhandler(400)
