@@ -34,7 +34,7 @@
       </li>
     </ul>
     <form class="search-bar" method="POST" action="{{ url_for('search.search_disease') }}">
-        <input type="text" name="search_term" placeholder="Search...">
+        <input type="text" name="search_term" placeholder="Search Disease...">
     </form>
     <div class="menu-icon">
       <span class="one"></span>
@@ -56,6 +56,9 @@
         <div class="dropdown-icon"></div>
       </li>
     </ul>
+    <form class="search-bar" method="POST" action="{{ url_for('search.search_disease') }}">
+        <input type="text" name="search_term" placeholder="Search Disease...">
+    </form>
   </div>
 </nav>
 
