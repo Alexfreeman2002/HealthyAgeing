@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="full-width full-page padding">
+        <div class="container form-container">
+            <h1>Question One</h1>
+            <h2>Do you wish to create a plan to aid with healthy ageing</h2>
+
+            <form class="form" method="post">
+                <div>{{ form1.yes }}</div>
+                <div>{{ form1.no }}</div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

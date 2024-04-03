@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="full-width full-page padding">
+        <div class="container form-container">
+            <div class="rangeslider">
+                <input type="range" min="1" max="10" value="5" class="myslider" id="sliderRange">
+            <p>Value: <span id="demo"></span></p>
+            </div>
+            <form method="post" id="sliderForm">
+                <input type="hidden" name="sliderValue" id="sliderValue"> <!-- Hidden input field to store slider value -->
+                {{ form.submit }}
+            </form>
+        </div>
+    </div>
+<script>
+    var rangeslider = document.getElementById("sliderRange");
+    var output = document.getElementById("demo");
+    var hiddenInput = document.getElementById("sliderValue");
+
+    output.innerHTML = rangeslider.value;
+    hiddenInput.value = rangeslider.value;
+
+    rangeslider.oninput = function() {
+        output.innerHTML = this.value;
+        hiddenInput.value = this.value;
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="full-width full-page padding">
+        <div class="container form-container">
+            <h1>Question Two</h1>
+            <form class="form" method="post">
+                {{ form2.hidden_tag() }}
+                <div>
+                    {{ form2.option1.label }}
+                    {{ form2.option1 }}
+                </div>
+                <div>
+                    {{ form2.option2.label }}
+                    {{ form2.option2 }}
+                </div>
+                <div>
+                    {{ form2.option3.label }}
+                    {{ form2.option3 }}
+                </div>
+                <div>
+                    {{ form2.submit }}
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
