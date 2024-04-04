@@ -3,11 +3,13 @@
 {% block content %}
     <div class="full-width full-page padding">
         <div class="container form-container">
-            <h3>Welcome to the Fitness Plan Builder, do you wish to continue?</h3>
+            <h1>Question Four</h1>
+            Do you rather work out at home or in the gym?
 
             <form class="form" method="post">
-                <div>{{ form1.yes }}</div>
-                <div>{{ form1.no }}</div>
+                {{ form.csrf_token }}
+                <div>{{ form.gym }}</div>
+                <div>{{ form.home }}</div>
             </form>
         </div>
     </div>

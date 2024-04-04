@@ -43,6 +43,9 @@
   </div>
   <div id="nav-mobile" class="nav-mobile">
     <ul>
+      <li>
+        <form class="search-bar-mobile" method="POST" action="{{url_for('search.search_disease')}}"><input type="text" name="search_term" placeholder="Search Disease..." formaction="{{ url_for('search.search_disease') }}"></form>
+      </li>
       <li><a href="{{ url_for('index') }}" class="link nav-hover">Home</a></li>
       <li><a href="{{ url_for('news.news') }}" class="link nav-hover">News</a></li>
       <li><a href="{{ url_for('health') }}" class="link nav-hover">Fitness Advice</a></li>
@@ -56,9 +59,6 @@
         <div class="dropdown-icon"></div>
       </li>
     </ul>
-    <form class="search-bar" method="POST" action="{{ url_for('search.search_disease') }}">
-        <input type="text" name="search_term" placeholder="Search Disease...">
-    </form>
   </div>
 </nav>
 

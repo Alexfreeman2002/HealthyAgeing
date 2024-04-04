@@ -64,9 +64,45 @@
   transition: 250ms;
   cursor: pointer;
 }
+.form input[type=text] {
+  padding: 0.5rem;
+  border: 3px #000000;
+  border-radius: 8px;
+  outline: none;
+  background-color: var(--beige);
+  transition: 100ms;
+}
+.form input[type=text]:focus {
+  color: #000000;
+  background-color: var(--beige);
+}
 .form input[type=submit]:hover {
   color: #413b2d;
   background-color: #8DAC75;
+}
+.form input[type='radio'] {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 1px solid var(--beige);
+  border-radius: 30%;
+  outline: none;
+}
+
+.form input[type='radio']:before {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 60%;
+  margin: 20% auto;
+  border-radius: 30%;
+}
+
+.form input[type='radio']:checked:before {
+  background: var(--beige);
+}
+.form ul {
+  list-style-type: none;
 }
 .news-container {
   width: 100%;
@@ -152,12 +188,28 @@
   color: red;
   text-align: center;
 }
-
+.search-bar-mobile {
+    align-items: center;
+    margin: 0 0.75rem;
+}
+.search-bar-mobile input[type=text] {
+  padding: 0.5rem;
+  border: 3px #000000;
+  border-radius: 8px;
+  outline: none;
+  background-color: var(--beige);
+  transition: 100ms;
+}
+.search-bar-mobile input[type=text]:focus {
+  color: #000000;
+  background-color: var(--beige);
+}
 .search-bar {
-  display: none;
+    display: none;
   align-items: center;
   margin: 0 0.75rem;
 }
+
 .search-bar input[type=text] {
   padding: 0.5rem;
   border: 3px #000000;

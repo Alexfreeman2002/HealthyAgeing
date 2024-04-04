@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="full-width full-page padding">
+        <div class="container form-container">
+            <h1>Question Five</h1>
+            Would you say you are at high risk of falling due to frailty?
+
+            <form class="form" method="post">
+                {{ form.csrf_token }}
+                <div>{{ form.yes }}</div>
+                <div>{{ form.no }}</div>
+                <div>{{ form.unsure }}</div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -3,27 +3,17 @@
 {% block content %}
     <div class="full-width full-page padding">
         <div class="container form-container">
-            <div class="rangeslider">
-                <input type="range" min="1" max="10" value="5" class="myslider" id="sliderRange">
-            <p>Value: <span id="demo"></span></p>
-            </div>
-            <form class="form" method="post" id="sliderForm">
-                <input type="hidden" name="sliderValue" id="sliderValue"> <!-- Hidden input field to store slider value -->
-                {{ form.submit }}
-            </form>
+            <h1>Question Two</h1>
+            <form class="form" method="POST" action="">
+                {{ form2.csrf_token }}
+                    Do you wish to lose, gain or maintain your current weight?
+                    <div>
+                        <br>
+                        {{ form2.options }}
+                        <br>
+                    </div>
+                <div>{{ form2.submit }}</div>
+    </form>
         </div>
     </div>
-<script>
-    var rangeslider = document.getElementById("sliderRange");
-    var output = document.getElementById("demo");
-    var hiddenInput = document.getElementById("sliderValue");
-
-    output.innerHTML = rangeslider.value;
-    hiddenInput.value = rangeslider.value;
-
-    rangeslider.oninput = function() {
-        output.innerHTML = this.value;
-        hiddenInput.value = this.value;
-    }
-</script>
 {% endblock %}
