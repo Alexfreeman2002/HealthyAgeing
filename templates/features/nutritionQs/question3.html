@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="full-width full-page padding">
+        <div class="container form-container">
+            <h1>Question Two</h1>
+            Do you have any of  the following dietry requirements?
+            <form class="form" method="post">
+                    <label>Pick Multiple From below</label>
+                    <ul>
+                        <li>
+                            <label><input type="checkbox" name="fr" value="vegan" /> Vegan</label>
+                        </li>
+                        <li>
+                            <label><input type="checkbox" name="fr" value="veg" /> Vegetarian</label>
+                        </li>
+                        <li>
+                            <label><input type="checkbox" name="fr" value="pesc" /> Pescatarian</label>
+                        </li>
+                        <li>
+                            <label><input type="checkbox" name="fr" value="nut" /> Nut Allergy</label>
+                        </li>
+                        <li>
+                            <label><input type="checkbox" name="fr" value="gluten" /> Gluten Intolerance</label>
+                        </li>
+                        <li>
+                            <label><input type="checkbox" name="fr" value="lactose" /> Lactose Intolerance</label>
+                        </li>
+                        <li>
+                            <label><input type="checkbox" name="fr" value="keto" /> Ketogenic Diet</label>
+                        </li>
+                        <li>
+                            <label><input type="checkbox" name="fr" value="none" id="noneOfAbove" /> None Of the above</label>
+                        </li>
+                    </ul>
+                <div>
+                    <br>
+                    {{ form.submit }}
+                </div>
+            </form>
+            <script>
+                document.getElementById("noneOfAbove").addEventListener("change", function() {
+                    var checkboxes = document.querySelectorAll('input[name="fr"]');
+                    checkboxes.forEach(function(checkbox) {
+                        if (checkbox !== document.getElementById("noneOfAbove")) {
+                            checkbox.disabled = document.getElementById("noneOfAbove").checked;
+                            if (document.getElementById("noneOfAbove").checked) {
+                                checkbox.checked = false;
+                            }
+                        }
+                    });
+                });
+            </script>
+        </div>
+    </div>
+{% endblock %}

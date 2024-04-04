@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="full-width full-page padding">
+        <div class="container form-container">
+            <h1>Question Four</h1>
+            Do you have a small, medium, or large budget for food?
+
+            <form class="form" method="post">
+                {{ form.csrf_token }}
+                <div>{{ form.small }}</div>
+                <div>{{ form.medium }}</div>
+                <div>{{ form.large }}</div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

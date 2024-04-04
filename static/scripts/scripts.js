@@ -22,7 +22,7 @@ icon.addEventListener("click", () => {
 
 // slider script
 var rangeslider = document.getElementById("sliderRange");
-var output = document.getElementById("demo");
+var output = document.getElementById("value");
 var hiddenInput = document.getElementById("sliderValue");
 
 output.innerHTML = rangeslider.value;

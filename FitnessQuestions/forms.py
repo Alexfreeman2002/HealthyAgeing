@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, SubmitField, SelectMultipleField, BooleanField, RadioField
+from wtforms import StringField, SubmitField, RadioField
 from wtforms.validators import DataRequired, ValidationError
-from wtforms.widgets import ListWidget, CheckboxInput
 
 
 class QuestionOne(FlaskForm):
@@ -14,15 +13,24 @@ class QuestionTwo(FlaskForm):
         try:
             float(field.data)
         except:
-            raise ValidationError("Value must be a float or integer")
+            raise ValidationError("Value must be a number")
+
+        if float(field.data) > 50:
+            raise ValidationError("Value must be between 0 and ")
+        elif float(field.data) < 0:
+            raise ValidationError("Value must be between 0 and 50")
+
+        if (float(field.data) * 10) % 1 != 0:
+            raise ValidationError("Please only enter up to 1 decimal point")
+
 
     hours = StringField(validators=[DataRequired(), check_input])
     submit = SubmitField('Submit')
 
 class QuestionThree(FlaskForm):
     options = RadioField('Options', choices=[('lose', 'Lose Weight'),
-                                             ('Gain', 'Gain Weight'),
-                                             ('Maintain', 'Maintain Weight')])
+                                             ('gain', 'Gain Weight'),
+                                             ('maintain', 'Maintain Weight')])
     submit = SubmitField('Submit')
 
 class QuestionFour(FlaskForm):
@@ -36,28 +44,3 @@ class QuestionSix(FlaskForm):
     yes = SubmitField('Yes')
     no = SubmitField('No')
     unsure = SubmitField('Not Sure')
-
-
-
-    """option1 = BooleanField('Option 1')
-    option2 = BooleanField('Option 2')
-    option3 = BooleanField('Option 3')
-    submit = SubmitField('Submit')
-    <form class="form" method="post">
-                {{ form2.hidden_tag() }}
-                <div>
-                    {{ form2.option1.label }}
-                    {{ form2.option1 }}
-                </div>
-                <div>
-                    {{ form2.option2.label }}
-                    {{ form2.option2 }}
-                </div>
-                <div>
-                    {{ form2.option3.label }}
-                    {{ form2.option3 }}
-                </div>
-                <div>
-                    {{ form2.submit }}
-                </div>
-            </form>"""
