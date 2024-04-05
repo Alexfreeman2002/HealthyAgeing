@@ -11,9 +11,9 @@
         </form>
       {% for article in articles %}
       <div class="news-box content">
-        <b><a href="{{ article.link }}">{{ article.title }}</a></b><br>
-        <span>{{ article.published }}</span>
-        <p>{{ article.summary }}</p>
+        <b><a href="{{ article.link }}">{{ article.title|safe }}</a></b><br>
+        <span>{{ article.published|safe }}</span>
+        <p>{{ article.summary|safe }}</p>
       </div>
       {% endfor %}
     </div>

@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 from flask_talisman import Talisman
 import feedparser
+from datetime import datetime
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
@@ -25,6 +26,12 @@ def index():
 
     feed = feedparser.parse('https://www.england.nhs.uk/feed/')
     articles = feed.entries[:2]
+
+    for article in articles:
+        # Parse the date string
+        published_datetime = datetime.strptime(article.published, '%a, %d %b %Y %H:%M:%S %z')
+        # Format the date string without the timezone offset
+        article.published = published_datetime.strftime('%a, %d %b %Y %H:%M:%S')
 
     return render_template('main/index.html', articles=articles)
 
