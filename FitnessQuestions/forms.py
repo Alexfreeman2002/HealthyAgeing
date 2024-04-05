@@ -16,7 +16,7 @@ class QuestionTwo(FlaskForm):
             raise ValidationError("Value must be a number")
 
         if float(field.data) > 50:
-            raise ValidationError("Value must be between 0 and ")
+            raise ValidationError("Value must be between 0 and 50")
         elif float(field.data) < 0:
             raise ValidationError("Value must be between 0 and 50")
 
