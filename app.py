@@ -5,16 +5,8 @@ from dotenv import load_dotenv
 from flask_talisman import Talisman
 import feedparser
 
-load_dotenv()
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
-app.config['SQLALCHEMY_ECHO'] = os.getenv('SQLALCHEMY_ECHO') == 'true'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = os.getenv('SQLALCHEMY_TRACK_MODIFICATIONS') == 'true'
-
-# Initialize database
-db = SQLAlchemy(app)
 
 # Content Security Policy (CSP) configuration
 csp = {
@@ -22,8 +14,6 @@ csp = {
         '\'self\'',
         '\'unsafe-inline\'',
         'https://www.england.nhs.uk/feed/',
-        'https://www.google.com/recaptcha/',
-        'https://www.gstatic.com/recaptcha/'
     ]
 }
 
