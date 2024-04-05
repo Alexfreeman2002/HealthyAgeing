@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 from flask_talisman import Talisman
 import feedparser
 
-
 load_dotenv()
 
 app = Flask(__name__)

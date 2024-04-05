@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="full-width full-page padding">
+        <h1>{{ plan[0][0] }}</h1>
+        <div class="container form-container-result">
+            <h2>Day 1</h2>
+            <br>
+            <h4>Activity:</h4> <li>{{ plan[0][0] }}</li>
+            <h4>Duration:</h4> <li>{{ plan[0][1] }}</li>
+            <h4>Instructions:</h4>
+            {% for item in instructions[0] %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </div>
+        <div class="container form-container-result">
+            <h3>Day 2</h3>
+            <br>
+            <h4>Activity:</h4> <li>{{ plan[1][0] }}</li>
+            <h4>Duration:</h4> <li>{{ plan[1][1] }}</li>
+            <h4>Instructions:</h4>
+            {% for item in instructions[1] %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </div>
+        <div class="container form-container-result">
+            <h3>Day 3</h3>
+            <br>
+            <h4>Activity:</h4> <li>{{ plan[2][0] }}</li>
+            <h4>Duration:</h4> <li>{{ plan[2][1] }}</li>
+            <h4>Instructions:</h4>
+            {% for item in instructions[2] %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </div>
+        <div class="container form-container-result">
+            <h3>Day 4</h3>
+            <br>
+            <h4>Activity:</h4> <li>{{ plan[3][0] }}</li>
+            <h4>Duration:</h4> <li>{{ plan[3][1] }}</li>
+            <h4>Instructions:</h4>
+            {% for item in instructions[3] %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </div>
+        <div class="container form-container-result">
+            <h3>Day 5</h3>
+            <br>
+            <h4>Activity:</h4> <li>{{ plan[4][0] }}</li>
+            <h4>Duration:</h4> <li>{{ plan[4][1] }}</li>
+            <h4>Instructions:</h4>
+            {% for item in instructions[4] %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </div>
+        <div class="container form-container-result">
+            <h3>Day 6</h3>
+            <br>
+            <h4>Activity:</h4> <li>{{ plan[5][0] }}</li>
+            <h4>Duration:</h4> <li>{{ plan[5][1] }}</li>
+            <h4>Instructions:</h4>
+            {% for item in instructions[5] %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </div>
+        <div class="container form-container-result">
+            <h3>Day 7</h3>
+            <br>
+            <h4>Activity:</h4> <li>{{ plan[6][0] }}</li>
+            <h4>Duration:</h4> <li>{{ plan[6][1] }}</li>
+            <h4>Instructions:</h4>
+            {% for item in instructions[6] %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

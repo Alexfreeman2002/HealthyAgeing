@@ -45,6 +45,9 @@
 .form-container {
   max-width: 300px;
 }
+.form-container-result {
+  max-width: 900px;
+}
 @media (min-width: 700px) {
   .form-container {
     max-width: 450px;
