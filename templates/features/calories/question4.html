@@ -3,17 +3,17 @@
 {% block content %}
     <div class="full-width full-page padding">
         <div class="container form-container">
-            <h1>Question Three</h1>
-            <form class="form" method="POST" action="">
+        <form class="form" method="POST" action="">
+            <h1>Question Two</h1>
                 {{ form.csrf_token }}
-                    Do you wish to lose, gain or maintain your current weight?
+                    What is your gender?
                     <div>
                         <br>
                         {{ form.options }}
                         <br>
                     </div>
                 <div>{{ form.submit }}</div>
-    </form>
+        </form>
         </div>
     </div>
 {% endblock %}

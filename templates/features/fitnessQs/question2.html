@@ -18,10 +18,10 @@
             <form class="form" method="post">
                 {{ form.csrf_token }}
                 <div>{{ form.hours }} Hours</div>
-                <br>
                 {% for error in form.hours.errors %}
                     <span class="error">{{ error }}</span>
                 {% endfor %}
+                <br>
                 <div>{{ form.submit }}</div>
             </form>
             {% endif %}

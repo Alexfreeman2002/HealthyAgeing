@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="full-width full-page padding">
+        <div class="container form-container">
+            <h3>Welcome to the Calorie Calculator, do you wish to continue?</h3>
+
+            <form class="form" method="post">
+                <div>{{ form.yes }}</div>
+                <div>{{ form.no }}</div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -83,8 +83,8 @@
   background-color: var(--beige);
 }
 .form input[type=submit]:hover {
-  color: #413b2d;
-  background-color: var(--green);
+  color: #000000;
+  background-color: #B5C1B2;
 }
 .form input[type='radio'] {
   appearance: none;
@@ -600,9 +600,6 @@ footer .footer-section {
   width: 1fr;
   transition: 250ms;
   border-radius: 8px;
-}
-footer .footer-section:hover {
-  background-color: var(--green);
 }
 @media (min-width: 700px) {
   footer .footer-section {
