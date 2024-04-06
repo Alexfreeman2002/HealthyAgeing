@@ -51,6 +51,15 @@
 .form-container-result {
   max-width: 900px;
 }
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  box-shadow: none;
+
+}
+.text {
+  width: 50%;
+}
 @media (min-width: 700px) {
   .form-container {
     max-width: 450px;
