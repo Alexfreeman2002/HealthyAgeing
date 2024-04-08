@@ -40,10 +40,15 @@ def information():
     return render_template('main/information.html')
 
 
-@app.route('/health')
-def health():
-    """Health page view"""
+@app.route('/fadvice')
+def fitness_advice():
+
     return render_template('features/fitness_advice.html')
+
+@app.route('/nadvice')
+def nutrition_advice():
+
+    return render_template('features/nutrition_advice.html')
 
 
 # BLUEPRINTS

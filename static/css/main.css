@@ -515,6 +515,7 @@ nav .logo {
   justify-self: center;
   align-self: center;
   width: 3rem;
+  fill: black;
 }
 @media (min-width: 1080px) {
   nav .logo {

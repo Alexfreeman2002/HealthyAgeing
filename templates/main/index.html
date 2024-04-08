@@ -20,7 +20,7 @@
 
     <ul class="feature-quick-access">
       <li>
-        <form action="{{ url_for('health') }}">
+        <form action="{{ url_for('fitness_advice') }}">
         <button class="two">
           <a>Fitness Advice</a>
           <img src="/static/resources/weight.svg" alt="Weight">
@@ -28,15 +28,15 @@
         </form>
       </li>
       <li>
-        <form action="{{ url_for('health') }}">
+        <form action="{{ url_for('nutrition_advice') }}">
         <button class="two">
           <a>Nutrition Advice</a>
           <img src="/static/resources/meal.svg" alt="Cutlery">
         </button>
-        </a>
+        </form>
       </li>
       <li>
-        <form action="{{ url_for('health') }}">
+        <form action="{{ url_for('meal.meal_plan') }}">
         <button class="two">
           <a>Create Meal Plan</a>
           <img src="/static/resources/meal-plan.svg" alt="Meal Calender">
@@ -55,7 +55,7 @@
         <form action="{{ url_for('calorie.calories') }}">
         <button class="two">
           <a>Calorie Calculator</a>
-          <img src="/static/resources/fitness-plan.svg" alt="Fitness Calender">
+          <img src="/static/resources/calculator.svg" alt="Calculator">
         </button>
           </form>
       </li>
