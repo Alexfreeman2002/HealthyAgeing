@@ -389,8 +389,8 @@ button:hover, .button:hover {
 }
 .corner-button {
   position: absolute; /* Position the button relative to the container */
-  top: 10px; /* Adjust top position */
-  right: 10px; /* Adjust right position */
+  top: 0%; /* Adjust top position */
+  right: 5%; /* Adjust right position */
   overflow: hidden;
 }
 
@@ -438,17 +438,42 @@ button:hover, .button:hover {
   .helplines {
     width: 60%;
   }
+  .box-info{
+    width: 60%;
+  }
 }
 
 .box-info {
   margin: 1rem;
   padding: 1rem;
-  display: flex;
   height: -moz-max-content;
   height: max-content;
   border-radius: 8px;
   color: var(--beige);
   background-color: #60789d;
+}
+
+.matter {
+  position: absolute; /* Position the button relative to the container */
+  top: 50%;
+  left: 60%; /* Adjust right position */
+  overflow: hidden;
+  width: 35%;
+}
+
+.tip {
+  position: absolute; /* Position the button relative to the container */
+  right: -60%; /* Adjust right position */
+  overflow: hidden;
+}
+
+
+.dyk {
+  position: absolute; /* Position the button relative to the container */
+  top: 20%; /* Adjust top position */
+  left: 65%; /* Adjust right position */
+  overflow: hidden;
+  width: 30%;
 }
 
 .nav-hover::after {
