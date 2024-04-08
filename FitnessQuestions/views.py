@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, redirect, request
+from flask import render_template, Blueprint, redirect, request, url_for
 from FitnessQuestions.forms import QuestionOne, QuestionTwo, QuestionThree, QuestionFour, QuestionFive, QuestionSix
 import csv
 
@@ -15,7 +15,7 @@ def fitness_plan():
     if form.no.data:
         return redirect("/")
 
-    return render_template("features/fitnessQs/question1.html", form=form)
+    return render_template("features/fitnessQs/question1.html", form=form, alert_message=request.args.get('alert'))
 
 @fitness_blueprint.route('/two', methods=['get','post'])
 def Q2():
@@ -92,7 +92,7 @@ def read_csv(file_name):
 def result():
 
     if len(route) != 5:
-        return redirect("/fitness")
+        return redirect(url_for('fitness.fitness_plan', alert='Please press ok to restart the set of questions'))
     if route[3] == 'home':
         if route[4] == 'frail':
             plan, instructions = read_csv('static/csv/beginner/h_beg.csv')

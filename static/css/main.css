@@ -42,7 +42,12 @@
   box-shadow: 5px 10px hsla(0, 0%, 0%, 0.2);
 }
 .container-heading{
-    text-align: center;
+  margin: 1rem 0;
+  padding: 2rem;
+  color: var(--beige);
+  background-color: var(--green);
+  border-radius: 8px;
+  box-shadow: 5px 10px hsla(0, 0%, 0%, 0.2);
 }
 
 .form-container {
@@ -224,6 +229,7 @@
   color: red;
   text-align: center;
 }
+
 .search-bar-mobile {
     align-items: center;
     margin: 0 0.75rem;
@@ -337,14 +343,6 @@
 }
 .form label {
   margin: 0.5rem 0;
-}
-
-.notification {
-  margin: 0.5rem 0;
-  padding: 0.5rem 1rem;
-  color: var(--beige);
-  background-color: #a33a3a;
-  border-radius: 4px;
 }
 
 button{
@@ -570,7 +568,6 @@ nav a {
 .nav-desktop {
   justify-content: center;
   align-items: center;
-  height: -moz-max-content;
   height: max-content;
   display: none;
   flex-direction: row;
@@ -588,7 +585,6 @@ footer {
   grid-column: 1/span 6;
   padding: 1rem;
   width: 100%;
-  height: -moz-max-content;
   height: max-content;
   display: flex;
   flex-direction: column;
@@ -611,9 +607,6 @@ footer a {
 }
 footer .footer-section {
   margin: 1rem;
-  width: 1fr;
-  transition: 250ms;
-  border-radius: 8px;
 }
 @media (min-width: 700px) {
   footer .footer-section {

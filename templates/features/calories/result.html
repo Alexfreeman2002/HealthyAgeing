@@ -2,12 +2,20 @@
 
 {% block content %}
     <div class="full-width full-page padding">
-        <div class="container container-heading">
-        <h1>Here are your weekly calories</h1>
+        <div class="container-heading">
+        <h1>Calorie Calculations</h1>
         </div>
         <div class="container form-container">
-            {{ calories }}
+            <h4>Daily Maintenance calories:</h4> {{ calories }}kcal
+            <div>
+                <h4>To be in a gradual calorie deficit eat around:</h4> {{ deficit }}kcal
+                <h4>To be in a gradual calorie surplus eat around:</h4> {{ gain }}kcal
+            </div>
         </div>
+        Please refer to the information page before following any of this advice
+        <form action="{{ url_for('information') }}">
+        <button class="button two">Information</button>
+        </form>
 
     </div>
 {% endblock %}

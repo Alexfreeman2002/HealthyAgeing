@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, redirect, request
+from flask import render_template, Blueprint, redirect, request, url_for
 from NutritionQuestions.forms import QuestionOne, QuestionTwo, QuestionThree
 from FitnessQuestions.views import read_csv
 
@@ -14,7 +14,7 @@ def meal_plan():
     if form.no.data:
         return redirect("/")
 
-    return render_template("features/nutritionQs/question1.html", form=form)
+    return render_template("features/nutritionQs/question1.html", form=form, alert_message=request.args.get('alert'))
 
 @meal_blueprint.route('/mtwo', methods=['get','post'])
 def Q2():
@@ -37,7 +37,7 @@ def Q3():
 @meal_blueprint.route('/mresult', methods=['get', 'post'])
 def meal_result():
     if len(choices) != 2:
-        return redirect("/meal")
+        return redirect(url_for('meal.meal_plan', alert='Please press ok to restart the set of questions'))
     if choices[0] <= "3":
         water = "Please ensure you are drinking at least 3 litres of water per day"
     else:

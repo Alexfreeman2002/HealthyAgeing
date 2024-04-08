@@ -35,6 +35,11 @@ def index():
 
     return render_template('main/index.html', articles=articles)
 
+@app.route('/info')
+def information():
+    return render_template('main/information.html')
+
+
 @app.route('/health')
 def health():
     """Health page view"""

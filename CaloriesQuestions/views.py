@@ -12,7 +12,7 @@ def calories():
     if form.no.data:
         return redirect("/")
 
-    return render_template("features/calories/question1.html", form=form)
+    return render_template("features/calories/question1.html", form=form, alert_message=request.args.get('alert'))
 
 def height_inch(Height, choice):
     #makes their input uppercase
@@ -83,7 +83,7 @@ def Q5():
 @calorie_blueprint.route('/cresult', methods=['get', 'post'])
 def calorie_result():
     if len(values) != 5:
-        return redirect('/calorie')
+        return redirect(url_for('calorie.calories', alert='Please press ok to restart the set of questions'))
     if values[3] == 'm':
         BMR =  (66 + float(6.3*float(values[0])) + float(12.9*float(values[1])) - float(6.8 * float(values[4])))
         cals = BMR * float(values[2])
@@ -95,4 +95,6 @@ def calorie_result():
         f = (655 + float(4.3 * float(values[0])) + float(4.7 * float(values[1])) - float(4.7 * float(values[4])))
         BMR = (m+f)/2
         cals = BMR * float(values[2])
-    return render_template("features/calories/result.html", calories=round(cals))
+    deficit = cals*0.8
+    gain = cals*1.2
+    return render_template("features/calories/result.html", calories=round(cals), deficit=round(deficit), gain=round(gain))
