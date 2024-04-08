@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, redirect, url_for, request
+from flask import render_template, Blueprint, redirect, request
 from NutritionQuestions.forms import QuestionOne, QuestionTwo, QuestionThree
 from FitnessQuestions.views import read_csv
 
@@ -67,7 +67,6 @@ def meal_result():
         if 'nut' in choices[1]:
             meal, recipe = read_csv('static/csv/meals/n_vl.csv')
             return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water)
-
         meal, recipe = read_csv('static/csv/meals/vl.csv')
         return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water)
 

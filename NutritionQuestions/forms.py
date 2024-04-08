@@ -1,7 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import widgets, StringField, SelectField, SubmitField, SelectMultipleField, BooleanField, RadioField, FloatField
-from wtforms.validators import DataRequired, ValidationError
-from wtforms.widgets import ListWidget, CheckboxInput
+from wtforms import SubmitField
 
 
 class QuestionOne(FlaskForm):

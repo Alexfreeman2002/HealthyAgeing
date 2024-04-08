@@ -389,6 +389,12 @@ button.speak{
 button:hover, .button:hover {
   background-color: #B5C1B2;
 }
+.corner-button {
+  position: absolute; /* Position the button relative to the container */
+  top: 10px; /* Adjust top position */
+  right: 10px; /* Adjust right position */
+  overflow: hidden;
+}
 
 .feature-quick-access {
   top: 0;
@@ -437,10 +443,9 @@ button:hover, .button:hover {
 }
 
 .box-info {
-  justify-self: center;
   margin: 1rem;
   padding: 1rem;
-  width: 80%;
+  display: flex;
   height: -moz-max-content;
   height: max-content;
   border-radius: 8px;

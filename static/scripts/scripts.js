@@ -1,11 +1,9 @@
 function speakText(elementId) {
-    var text = document.getElementById(elementId).innerText;
+    // Get the text content of the element with the specified ID
+    var text = document.getElementById(elementId).textContent;
 
     // Create a new instance of SpeechSynthesisUtterance
     var utterance = new SpeechSynthesisUtterance(text);
-
-    // Set voice
-    utterance.voice = speechSynthesis.getVoices()[0]; // Change index to select different voices
 
     // Speak the text
     speechSynthesis.speak(utterance);
