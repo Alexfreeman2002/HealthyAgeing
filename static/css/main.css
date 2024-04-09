@@ -476,6 +476,10 @@ button:hover, .button:hover {
   width: 30%;
 }
 
+.small-window{
+
+}
+
 .nav-hover::after {
   content: "";
   position: absolute;
