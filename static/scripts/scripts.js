@@ -3,11 +3,28 @@ function speakText(elementId) {
     var text = document.getElementById(elementId).textContent;
 
     // Create a new instance of SpeechSynthesisUtterance
-    var utterance = new SpeechSynthesisUtterance(text);
+    var utterance = new SpeechSynthesisUtterance(text)
+
+    // Check if speech synthesis is currently speaking
+    if (speechSynthesis.speaking) {
+        // If speaking, cancel the current speech
+        speechSynthesis.cancel();
+    }
 
     // Speak the text
     speechSynthesis.speak(utterance);
+
+    // Event listener to cancel speech when leaving the webpage
+    window.addEventListener('beforeunload', function(event) {
+    // Check if speech synthesis is currently speaking
+    if (speechSynthesis.speaking) {
+        // If speaking, cancel the current speech
+        speechSynthesis.cancel();
+    }
+});
+
 }
+
 
 // to show side menu when window is too small
 const icon = document.querySelector(".menu-icon");

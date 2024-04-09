@@ -6,9 +6,6 @@
         <h1>Based on your choices here is a personalised weekly fitness plan</h1>
             </div>
         <div class="container form-container-result">
-            <button class="speak corner-button" onclick=speakText("day1")>
-            Speak
-          <img src="/static/resources/speaker.svg" alt="Speaker"></button>
             <div id="day1">
                 <h2>Day 1</h2>
                 <br>
@@ -19,11 +16,13 @@
                 <li>{{ item }}</li>
                 {% endfor %}
             </div>
-        </div>
-        <div class="container form-container-result">
-            <button class="speak corner-button" onclick=speakText("day2")>
+            <div>
+            <button class="speak" onclick=speakText("day1")>
             Speak
           <img src="/static/resources/speaker.svg" alt="Speaker"></button>
+                </div>
+        </div>
+        <div class="container form-container-result">
             <div id="day2">
                 <h2>Day 2</h2>
                 <br>
@@ -34,11 +33,13 @@
                 <li>{{ item }}</li>
                 {% endfor %}
             </div>
-        </div>
-        <div class="container form-container-result">
-            <button class="speak corner-button" onclick=speakText("day3")>
+            <div>
+            <button class="speak" onclick=speakText("day2")>
             Speak
           <img src="/static/resources/speaker.svg" alt="Speaker"></button>
+            </div>
+        </div>
+        <div class="container form-container-result">
             <div id="day3">
                 <h2>Day 3</h2>
                 <br>
@@ -49,11 +50,13 @@
                 <li>{{ item }}</li>
                 {% endfor %}
             </div>
-        </div>
-        <div class="container form-container-result">
-            <button class="speak corner-button" onclick=speakText("day4")>
+            <div>
+            <button class="speak" onclick=speakText("day3")>
             Speak
           <img src="/static/resources/speaker.svg" alt="Speaker"></button>
+                </div>
+        </div>
+        <div class="container form-container-result">
             <div id="day4">
                 <h3>Day 4</h3>
                 <br>
@@ -64,11 +67,13 @@
                 <li>{{ item }}</li>
                 {% endfor %}
             </div>
-        </div>
-        <div class="container form-container-result">
-            <button class="speak corner-button" onclick=speakText("day5")>
+            <div>
+            <button class="speak" onclick=speakText("day4")>
             Speak
           <img src="/static/resources/speaker.svg" alt="Speaker"></button>
+                </div>
+        </div>
+        <div class="container form-container-result">
             <div id="day5">
                 <h3>Day 5</h3>
                 <br>
@@ -79,11 +84,13 @@
                 <li>{{ item }}</li>
                 {% endfor %}
             </div>
-        </div>
-        <div class="container form-container-result">
-            <button class="speak corner-button" onclick=speakText("day6")>
+            <div>
+            <button class="speak" onclick=speakText("day5")>
             Speak
           <img src="/static/resources/speaker.svg" alt="Speaker"></button>
+                </div>
+        </div>
+        <div class="container form-container-result">
             <div id="day6">
                 <h3>Day 6</h3>
                 <br>
@@ -94,11 +101,13 @@
                 <li>{{ item }}</li>
                 {% endfor %}
             </div>
-        </div>
-        <div class="container form-container-result">
-            <button class="speak corner-button" onclick=speakText("day7")>
+            <div>
+            <button class="speak" onclick=speakText("day6")>
             Speak
           <img src="/static/resources/speaker.svg" alt="Speaker"></button>
+                </div>
+        </div>
+        <div class="container form-container-result">
             <div id="day7">
                 <h3>Day 7</h3>
                 <br>
@@ -109,6 +118,28 @@
                 <li>{{ item }}</li>
                 {% endfor %}
             </div>
+            <div>
+            <button class="speak" onclick=speakText("day7")>
+            Speak
+          <img src="/static/resources/speaker.svg" alt="Speaker"></button>
+                </div>
         </div>
     </div>
+<script>
+    function speakText(elementId) {
+    // Get the text content of the element with the specified ID
+    var text = document.getElementById(elementId).textContent;
+
+    // Create a new instance of SpeechSynthesisUtterance
+    var utterance = new SpeechSynthesisUtterance(text)
+
+    // Check if speech synthesis is currently speaking
+    if (speechSynthesis.speaking) {
+        // If speaking, cancel the current speech
+        speechSynthesis.cancel();
+    }
+    // Speak the text
+    speechSynthesis.speak(utterance);
+}
+</script>
 {% endblock %}
