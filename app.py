@@ -5,9 +5,14 @@ from dotenv import load_dotenv
 from flask_talisman import Talisman
 import feedparser
 from datetime import datetime
+import secrets
+
+# Generate a random secret key
+secret_key = secrets.token_hex(16)
+
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+app.config['SECRET_KEY'] = secret_key
 
 # Content Security Policy (CSP) configuration
 csp = {
