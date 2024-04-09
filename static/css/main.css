@@ -384,12 +384,16 @@ button.search {
 button.speak{
   background-color: var(--beige);
 }
+button.news{
+  background-color: var(--green);
+  padding: 0;
+}
 button:hover, .button:hover {
   background-color: #B5C1B2;
 }
 .corner-button {
   position: absolute; /* Position the button relative to the container */
-  top: 0%; /* Adjust top position */
+  top: 10%; /* Adjust top position */
   right: 5%; /* Adjust right position */
   overflow: hidden;
 }
@@ -444,12 +448,14 @@ button:hover, .button:hover {
 }
 
 .box-info {
+  justify-self: center;
   margin: 1rem;
   padding: 1rem;
+  width: 80%;
   height: -moz-max-content;
   height: max-content;
   border-radius: 8px;
-  color: var(--beige);
+  color: #FFFFFF;
   background-color: #60789d;
 }
 
@@ -476,9 +482,6 @@ button:hover, .button:hover {
   width: 30%;
 }
 
-.small-window{
-
-}
 
 .nav-hover::after {
   content: "";

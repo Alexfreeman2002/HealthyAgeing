@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% block content %}
   <div class="full-width padding">
     <div class="container content">
@@ -37,28 +38,30 @@
           <p>
             If you have joint issues or mobility limitations, choose low-impact exercises like swimming, water aerobics, stationary cycling, or elliptical training to minimize stress on the joints while still getting an effective workout.
           </p>
-
         </div>
-        <div>
-        <button class="speak corner-button" onclick=speakText("content1")>
+        <div class = "content">
+          <button class="speak" onclick=speakText("content1")>
             Speak
           <img src="/static/resources/speaker.svg" alt="Speaker"></button>
+          <div class="box-info content">
+            <h2>Did you know?</h2>
+            <p> Did you know that strength training isn't just for building muscles? It also helps maintain bone density, which is crucial for preventing osteoporosis and reducing the risk of fractures as you age.
+            </p>
+          </div>
+        <div>
+          <div class="box-info content">
+            <h2>Tip!</h2>
+            <p> Tip: Mix it up! Variety is key to keeping your workouts interesting and preventing boredom. Try different types of exercise, such as swimming, hiking, yoga, or group fitness classes, to challenge your body in new ways and stay motivated.
+            </p>
+          </div>
         </div>
-
-      <div class="container content box-info dyk">
-        <h2>Did you know?</h2>
-        <p> Did you know that strength training isn't just for building muscles? It also helps maintain bone density, which is crucial for preventing osteoporosis and reducing the risk of fractures as you age.
-        </p>
-      </div>
-      <div class="container content box-info matter">
-        <h2>Tip!</h2>
-        <p> Tip: Mix it up! Variety is key to keeping your workouts interesting and preventing boredom. Try different types of exercise, such as swimming, hiking, yoga, or group fitness classes, to challenge your body in new ways and stay motivated.
-          </p>
-      </div>
-        <div class="container content box-info tip">
-          <h2>Did you know?</h2>
-          <p>Did you know that staying active can improve your mood and reduce feelings of anxiety and depression? Exercise triggers the release of endorphins, neurotransmitters that act as natural mood lifters and stress reducers.
-        </p>
+          <div>
+          <div class="box-info content">
+            <h2>Did you know?</h2>
+            <p>Did you know that staying active can improve your mood and reduce feelings of anxiety and depression? Exercise triggers the release of endorphins, neurotransmitters that act as natural mood lifters and stress reducers.
+            </p>
+          </div>
+        </div>
         </div>
       </div>
 
@@ -89,6 +92,12 @@
           </p>
           <p>
             This service will be able to guide you to the right resource or service to fit your needs
+          </p>
+        </div>
+        <div class="container content helplines">
+          <h2>Shout Crisis Help Line</h2>
+          <p>
+            Text "SHOUT" to 85258 to contact the Shout Crisis Text Line, or text "YM" if you're under 19
           </p>
         </div>
       </div>
