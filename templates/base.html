@@ -52,15 +52,9 @@
       <li><a href="{{ url_for('news.news') }}" class="link nav-hover">News</a></li>
       <li><a href="{{ url_for('fitness_advice') }}" class="link nav-hover">Fitness Advice</a></li>
       <li><a href="{{ url_for('nutrition_advice') }}" class="link nav-hover">Nutrition Advice</a></li>
-      <li class="dropdown">
-        <a href="#" class="link nav-hover">Customised Plan</a>
-        <ul class="dropdown-list">
-          <li><a href="{{ url_for('meal.meal_plan') }}" class="link nav-hover">Create Meal Plan</a></li>
-          <li><a href="{{ url_for('fitness.fitness_plan') }}" class="link nav-hover">Create Fitness Plan</a></li>
-          <li><a href="{{ url_for('calorie.calories') }}" class="link nav-hover">Calculate Daily Calories</a></li>
-        </ul>
-        <div class="dropdown-icon"></div>
-      </li>
+      <li><a href="{{ url_for('meal.meal_plan') }}" class="link nav-hover">Create Meal Plan</a></li>
+      <li><a href="{{ url_for('fitness.fitness_plan') }}" class="link nav-hover">Create Fitness Plan</a></li>
+      <li><a href="{{ url_for('calorie.calories') }}" class="link nav-hover">Calculate Daily Calories</a></li>
     </ul>
   </div>
 </nav>
