@@ -9,6 +9,8 @@
         <img src="/static/resources/arrow.svg">
       </button>
         </form>
+      <br>
+      <h3>Press the title of each news article view the rest of the article</h3>
       {% for article in articles %}
       <div class="news-box content">
         <b><a href="{{ article.link }}">{{ article.title|safe }}</a></b><br>

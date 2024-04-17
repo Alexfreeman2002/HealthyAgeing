@@ -40,8 +40,8 @@ def Q2():
     form = QuestionTwo()
     if form.validate_on_submit():
         # gets the units for the height and weight from the form
-        h_choice = form.h_units.data
-        w_choice = form.w_units.data
+        h_choice = form.hoptions.data
+        w_choice = form.woptions.data
         # gets the value for the height and weight from the form, making them a float type
         H = float(form.height.data)
         W = float(form.weight.data)

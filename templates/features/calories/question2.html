@@ -3,7 +3,7 @@
 {% block content %}
     <div class="full-width full-page padding">
         <div class="container form-container">
-            <h1>BMI Calculator</h1>
+            <h3>Please enter your height and weight</h3>
 
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -25,11 +25,9 @@
                         </div>
                         <br>
                         <div>
-                            {{ form.h_units(class="input", placeholder="Input cm or feet") }}
-                            {% for error in form.h_units.errors %}
-                                {{ error }}
-                            {% endfor %}
+                            {{ form.hoptions }}
                         </div>
+
                     </div>
                     <br>
                     <div>
@@ -41,13 +39,10 @@
                         </div>
                         <br>
                         <div>
-                            {{ form.w_units(class="input", placeholder="Input kg or lbs") }}
-                            {% for error in form.w_units.errors %}
-                                {{ error }}
-                            {% endfor %}
+                            {{ form.woptions }}
                         </div>
+                        <br>
                     </div>
-                    <br>
                     <div>{{ form.submit() }}</div>
                 </form>
             {% endif %}

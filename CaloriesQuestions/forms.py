@@ -31,9 +31,9 @@ class QuestionTwo(FlaskForm):
 
     # declaration and validation for each input field
     height = StringField(validators=[DataRequired(), check_input])
-    h_units = StringField(validators=[DataRequired(), check_h_choice])
+    hoptions = RadioField('Options', choices=[('cm','Centimeters'),('feet', 'Feet')], default='cm')
     weight = StringField(validators=[DataRequired(), check_input])
-    w_units = StringField(validators=[DataRequired(), check_w_choice])
+    woptions = RadioField('Options', choices=[('kg', 'Kilograms'),('lbs', 'Pounds')], default='kg')
     submit = SubmitField('Submit')
 
 class QuestionThree(FlaskForm):

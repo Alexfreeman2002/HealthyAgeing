@@ -149,6 +149,14 @@
   border-radius: 30%;
 }
 
+.heading-with-image {
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.heading-with-image img {
+    margin-right: 10px; /* Add some spacing between the image and the heading */
+}
 .form input[type='checkbox']:checked:before {
   background: var(--beige);
 }
