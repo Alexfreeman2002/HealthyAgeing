@@ -1,28 +1,35 @@
+var isSpeaking = false;
+
 function speakText(elementId) {
     // Get the text content of the element with the specified ID
     var text = document.getElementById(elementId).textContent;
 
     // Create a new instance of SpeechSynthesisUtterance
-    var utterance = new SpeechSynthesisUtterance(text)
+    var utterance = new SpeechSynthesisUtterance(text);
 
     // Check if speech synthesis is currently speaking
-    if (speechSynthesis.speaking) {
-        // If speaking, cancel the current speech
+    if (isSpeaking) {
+        // If speaking, stop speaking
         speechSynthesis.cancel();
+        isSpeaking = false; // Update speech status
+        return; // Exit function
     }
 
     // Speak the text
     speechSynthesis.speak(utterance);
 
+    // Update speech status
+    isSpeaking = true;
+
     // Event listener to cancel speech when leaving the webpage
     window.addEventListener('beforeunload', function(event) {
-    // Check if speech synthesis is currently speaking
-    if (speechSynthesis.speaking) {
-        // If speaking, cancel the current speech
-        speechSynthesis.cancel();
-    }
-});
-
+        // Check if speech synthesis is currently speaking
+        if (isSpeaking) {
+            // If speaking, cancel the current speech
+            speechSynthesis.cancel();
+            isSpeaking = false; // Update speech status
+        }
+    });
 }
 
 

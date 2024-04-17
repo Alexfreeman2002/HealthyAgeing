@@ -12,6 +12,7 @@ secret_key = secrets.token_hex(16)
 
 
 app = Flask(__name__)
+app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = secret_key
 
 # Content Security Policy (CSP) configuration
