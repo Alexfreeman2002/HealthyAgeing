@@ -1,3 +1,9 @@
+"""
+Fitness Questions Forms
+
+This file defines Flask forms for each question within the fitness plan creator
+"""
+
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, RadioField
 from wtforms.validators import DataRequired, ValidationError

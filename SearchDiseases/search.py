@@ -100,28 +100,6 @@ class WebsiteCrawler(ABC):
         # automatically parse the HTML before assigning
         self._content = self.make_soup(content)
 
-    @abstractmethod
-    def search_website(self, term):
-        """
-        Abstract method to search through the target website. Can be
-        written in its child classes.
-
-        Args:
-            term (string): the string form of the search term given by the user
-        """
-        pass
-
-    @abstractmethod
-    def retrieve_data(self, term):
-        """
-        Abstract method to retrieve the target data from the target website.
-        Can be written in its child classes.
-
-        Args:
-            term (string): the string form of the search term given by the user
-        """
-        pass
-
     @staticmethod
     def make_soup(html):
         """
@@ -207,8 +185,6 @@ class NHSWebsiteCrawler(WebsiteCrawler):
         Raises:
             ValueError: If the search term is invalid.
         """
-        if term[0] == ' ':
-            raise ValueError('Invalid search term. Mis-input URL?')
 
         first_char = term[0].upper()
 
@@ -282,15 +258,3 @@ class NHSWebsiteCrawler(WebsiteCrawler):
             string: A string representation of the instance.
         """
         return ' | '.join(str(match) for match in self.matches)
-
-
-if __name__ == '__main__':
-    url = 'https://www.nhs.uk/conditions/'
-    nhs = NHSWebsiteCrawler(url)
-
-    term = 'Headaches'
-    success, result = nhs.search_website(term)
-    html_result = nhs.retrieve_data(term)
-
-    print(success)
-    print(html_result)

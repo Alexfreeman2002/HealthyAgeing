@@ -1,8 +1,13 @@
+"""
+Calories Questions Forms
+
+This file defines Flask forms for each question within the calorie calculator
+"""
+
 from flask_wtf import FlaskForm
 from wtforms import widgets, StringField, SelectField, SubmitField, SelectMultipleField, BooleanField, RadioField, FloatField
 from wtforms.validators import DataRequired, ValidationError
 import re
-
 
 class QuestionOne(FlaskForm):
     yes = SubmitField('Continue')
@@ -15,7 +20,7 @@ class QuestionTwo(FlaskForm):
         if not re.match(r'^[a-zA-Z0-9\s]+$', field.data):
             raise ValidationError("Value cannot contain special characters")
 
-    #makes sure the input is a float field and gives an error message if not
+    #makes sure the input is a float field and within a range, gives an error message if not
     def check_height_input(self, field):
         try:
             float(field.data)
@@ -27,7 +32,7 @@ class QuestionTwo(FlaskForm):
         elif float(field.data) < 0:
             raise ValidationError("Please enter a positive number")
 
-    # makes sure the input is a float field and gives an error message if not
+    #makes sure the input is a float field and within a range, gives an error message if not
     def check_weight_input(self, field):
         try:
             float(field.data)
@@ -55,6 +60,7 @@ class QuestionThree(FlaskForm):
                                              ('1.9','Very heavy exercise (twice per day, extra heavy workouts) or a very active job like Personal Trainer or Factory Worker who also exercises a lot')])
     submit = SubmitField('Submit')
 
+
 class QuestionFour(FlaskForm):
     options = RadioField('Options', choices=[('m', 'Male'),
                                              ('f', 'Female'),
@@ -63,7 +69,7 @@ class QuestionFour(FlaskForm):
     submit = SubmitField('Submit')
 
 class QuestionFive(FlaskForm):
-    # makes sure the input is a float field and gives an error message if not
+    #makes sure the input is a float field and within a range, gives an error message if not
     def check_input(self, field):
         try:
             int(field.data)

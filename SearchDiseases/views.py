@@ -31,7 +31,7 @@ def search_disease():
         - The search results are rendered in the 'features/search.html' template.
     """
     if request.method == 'POST':
-        search_term = request.form['search_term']
+        search_term = request.form['search_term'].strip()
 
         if not search_term.strip():
             return render_template('features/search.html',
@@ -41,7 +41,7 @@ def search_disease():
                                    error_message="Please enter a valid search term.")
 
         #has to include only letters spaces and numbers
-        if not re.match(r'^[a-zA-Z0-9\s]+$', search_term):
+        if not re.match(r'^[a-zA-Z\s]*[a-zA-Z][a-zA-Z0-9\s]*$', search_term):
             return render_template('features/search.html',
                                    error_message="Please enter a valid search term.")
 
