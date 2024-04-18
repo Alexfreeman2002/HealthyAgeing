@@ -70,5 +70,10 @@ class QuestionFive(FlaskForm):
         except:
             raise ValidationError("Value must be an integer")
 
+        if float(field.data) > 125:
+            raise ValidationError("Value is too high.")
+        elif float(field.data) < 0:
+            raise ValidationError("Please enter a positive number")
+
     age = StringField(validators=[DataRequired(), check_input], render_kw={"placeholder": "Enter your age"})
     submit = SubmitField('Submit')
