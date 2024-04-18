@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import widgets, StringField, SelectField, SubmitField, SelectMultipleField, BooleanField, RadioField, FloatField
 from wtforms.validators import DataRequired, ValidationError
-from wtforms.widgets import ListWidget, CheckboxInput
+import re
 
 
 class QuestionOne(FlaskForm):
@@ -10,29 +10,40 @@ class QuestionOne(FlaskForm):
 
 class QuestionTwo(FlaskForm):
 
+    # Validator to check for special characters
+    def no_special_characters(self, field):
+        if not re.match(r'^[a-zA-Z0-9\s]+$', field.data):
+            raise ValidationError("Value cannot contain special characters")
+
     #makes sure the input is a float field and gives an error message if not
-    def check_input(self, field):
+    def check_height_input(self, field):
         try:
             float(field.data)
         except:
             raise ValidationError("Value must be a float or integer")
 
-    #makes sure the units for the height is correct
-    def check_h_choice(self, field):
-        h_choice = field.data
-        while h_choice.upper() != "CM" and h_choice.upper() != "FEET":
-            raise ValidationError("Value must be either cm or feet")
+        if float(field.data) > 275:
+            raise ValidationError("Value is too high.")
+        elif float(field.data) < 0:
+            raise ValidationError("Please enter a positive number")
 
-    #makes sure the units for the weight is correct
-    def check_w_choice(self, field):
-        w_choice = field.data
-        while w_choice.upper() != "KG" and w_choice.upper() != "LBS":
-            raise ValidationError("Value must be either kg or lbs")
+    # makes sure the input is a float field and gives an error message if not
+    def check_weight_input(self, field):
+        try:
+            float(field.data)
+        except:
+            raise ValidationError("You have entered a value must that is too large or it isn't a number")
+
+        if float(field.data) > 1500:
+            raise ValidationError("Value is too high.")
+        elif float(field.data) < 0:
+            raise ValidationError("Please enter a positive number")
+
 
     # declaration and validation for each input field
-    height = StringField(validators=[DataRequired(), check_input])
+    height = StringField(validators=[DataRequired(), no_special_characters, check_height_input])
     hoptions = RadioField('Options', choices=[('cm','Centimeters'),('feet', 'Feet')], default='cm')
-    weight = StringField(validators=[DataRequired(), check_input])
+    weight = StringField(validators=[DataRequired(), no_special_characters, check_weight_input])
     woptions = RadioField('Options', choices=[('kg', 'Kilograms'),('lbs', 'Pounds')], default='kg')
     submit = SubmitField('Submit')
 
@@ -59,5 +70,5 @@ class QuestionFive(FlaskForm):
         except:
             raise ValidationError("Value must be an integer")
 
-    age = StringField(validators=[DataRequired(), check_input])
+    age = StringField(validators=[DataRequired(), check_input], render_kw={"placeholder": "Enter your age"})
     submit = SubmitField('Submit')

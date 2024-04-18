@@ -5,7 +5,7 @@
         <div class="container form-container">
             <h1>Search</h1>
             <form class="search-bar in-page" method="POST" action="{{ url_for('search.search_disease') }}">
-                <input type="text" name="search_term" placeholder="Search...">
+                <input type="text" name="search_term" placeholder="Search Disease...">
             </form>
 
             {% with messages = get_flashed_messages() %}
@@ -15,6 +15,12 @@
                     </div>
                 {% endif %}
             {% endwith %}
+
+            {% if error_message %}
+            <div class="error-message">
+                {{ error_message }}
+            </div>
+            {% endif %}
         </div>
 
         {% if search_term != null %}

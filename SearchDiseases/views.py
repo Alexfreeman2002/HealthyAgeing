@@ -9,6 +9,7 @@ and view relevant data.
 
 from flask import render_template, request, Blueprint
 from SearchDiseases.search import NHSWebsiteCrawler
+import re
 
 
 search_blueprint = Blueprint('search', __name__, template_folder='templates/features')
@@ -31,6 +32,18 @@ def search_disease():
     """
     if request.method == 'POST':
         search_term = request.form['search_term']
+
+        if not search_term.strip():
+            return render_template('features/search.html',
+                                   error_message="Please enter a search term.")
+        if search_term.isdigit():
+            return render_template('features/search.html',
+                                   error_message="Please enter a valid search term.")
+
+        #has to include only letters spaces and numbers
+        if not re.match(r'^[a-zA-Z0-9\s]+$', search_term):
+            return render_template('features/search.html',
+                                   error_message="Please enter a valid search term.")
 
         url = 'https://www.nhs.uk/conditions/'
         nhs = NHSWebsiteCrawler(url)

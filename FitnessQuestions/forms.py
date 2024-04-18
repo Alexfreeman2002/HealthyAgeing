@@ -24,7 +24,7 @@ class QuestionTwo(FlaskForm):
             raise ValidationError("Please only enter up to 1 decimal point")
 
 
-    hours = StringField(validators=[DataRequired(), check_input])
+    hours = StringField(validators=[DataRequired(), check_input], render_kw={"placeholder": "Enter hours"})
     submit = SubmitField('Submit')
 
 class QuestionThree(FlaskForm):
