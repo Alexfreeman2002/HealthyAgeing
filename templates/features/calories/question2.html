@@ -3,7 +3,12 @@
 {% block content %}
     <div class="full-width full-page padding">
         <div class="container form-container">
+            <h1>Question One</h1>
+            <div id="speak">
             <h3>Please enter your height and weight</h3>
+                </div>
+            <button class="news" onclick=speakText('speak')>
+            <img src="/static/resources/speaker.svg" alt="Speaker"></button>
 
             {% with messages = get_flashed_messages() %}
                 {% if messages %}

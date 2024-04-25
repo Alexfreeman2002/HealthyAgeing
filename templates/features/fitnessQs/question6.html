@@ -4,8 +4,11 @@
     <div class="full-width full-page padding">
         <div class="container form-container">
             <h1>Question Five</h1>
+            <div id="speak">
             Would you say you are at high risk of falling due to frailty?
-
+                </div>
+            <button class="news" onclick=speakText('speak')>
+            <img src="/static/resources/speaker.svg" alt="Speaker"></button>
             <form class="form" method="post">
                 {{ form.csrf_token }}
                 <div>{{ form.yes }}</div>

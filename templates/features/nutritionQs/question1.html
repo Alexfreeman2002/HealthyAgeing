@@ -8,7 +8,11 @@
                 alert( "{{ alert_message }}" );
             </script>
             {% endif %}
+            <div id="speak">
             <h3>Welcome to the Meal Plan Builder, do you wish to continue?</h3>
+            </div>
+            <button class="news" onclick=speakText('speak')>
+            <img src="/static/resources/speaker.svg" alt="Speaker"></button>
 
             <form class="form" method="post">
                 <div>{{ form.yes }}</div>

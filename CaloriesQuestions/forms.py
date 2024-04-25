@@ -15,10 +15,6 @@ class QuestionOne(FlaskForm):
 
 class QuestionTwo(FlaskForm):
 
-    # Validator to check for special characters
-    def no_special_characters(self, field):
-        if not re.match(r'^[a-zA-Z0-9\s]+$', field.data):
-            raise ValidationError("Value cannot contain special characters")
 
     #makes sure the input is a float field and within a range, gives an error message if not
     def check_height_input(self, field):
@@ -46,9 +42,9 @@ class QuestionTwo(FlaskForm):
 
 
     # declaration and validation for each input field
-    height = StringField(validators=[DataRequired(), no_special_characters, check_height_input])
+    height = StringField(validators=[DataRequired(), check_height_input])
     hoptions = RadioField('Options', choices=[('cm','Centimeters'),('feet', 'Feet')], default='cm')
-    weight = StringField(validators=[DataRequired(), no_special_characters, check_weight_input])
+    weight = StringField(validators=[DataRequired(), check_weight_input])
     woptions = RadioField('Options', choices=[('kg', 'Kilograms'),('lbs', 'Pounds')], default='kg')
     submit = SubmitField('Submit')
 

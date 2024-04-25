@@ -4,7 +4,8 @@
     <div class="full-width full-page padding">
         <div class="container form-container">
             <h1>Question Two</h1>
-            Do you have any of  the following dietry requirements?
+            <div id="speak">
+            Do you have any of  the following dietary requirements?
             <form class="form" method="post">
                     <label>Pick Multiple From below</label>
                     <ul>
@@ -33,12 +34,17 @@
                             <label><input type="checkbox" name="fr" value="none" id="noneOfAbove" /> None Of the above</label>
                         </li>
                     </ul>
-                <p>If you have selected None Of the above please press it again to deselect it</p>
                 <div>
                     <br>
                     {{ form.submit }}
                 </div>
+
             </form>
+                <button class="news corner-button" onclick=speakText('speak')>
+            <img src="/static/resources/speaker.svg" alt="Speaker"></button>
+        </div>
+    </div>
+    </div>
             <script>
                 document.getElementById("noneOfAbove").addEventListener("change", function() {
                     var checkboxes = document.querySelectorAll('input[name="fr"]');
@@ -57,6 +63,5 @@
                     });
                 });
             </script>
-        </div>
-    </div>
+
 {% endblock %}

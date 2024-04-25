@@ -6,7 +6,11 @@
             <h1>Question Two</h1>
             <form class="form" method="POST" action="">
                 {{ form.csrf_token }}
+                <div id="speak">
                     Do you wish to lose, gain or maintain your current weight?
+                </div>
+                <button class="news corner-button" onclick=speakText('speak')>
+            <img src="/static/resources/speaker.svg" alt="Speaker"></button>
                     <div>
                         <br>
                         {{ form.options }}
@@ -14,6 +18,7 @@
                     </div>
                 <div>{{ form.submit }}</div>
     </form>
+
         </div>
     </div>
 {% endblock %}

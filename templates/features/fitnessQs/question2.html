@@ -11,9 +11,11 @@
                     </div>
                 {% endif %}
             {% endwith %}
-
+            <div id="speak">
             Approximately how many hours per week do you exercise?
-
+            </div>
+            <button class="news" onclick=speakText('speak')>
+            <img src="/static/resources/speaker.svg" alt="Speaker"></button>
             {% if form %}
             <form class="form" method="post">
                 {{ form.csrf_token }}

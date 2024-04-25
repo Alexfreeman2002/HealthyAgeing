@@ -4,8 +4,11 @@
     <div class="full-width full-page padding">
         <div class="container form-container">
             <h1>Question Four</h1>
-            Do you rather work out at home or in the gym?
-
+            <div id="speak">
+            Would you rather work out at home or in the gym?
+            </div>
+            <button class="news" onclick=speakText('speak')>
+            <img src="/static/resources/speaker.svg" alt="Speaker"></button>
             <form class="form" method="post">
                 {{ form.csrf_token }}
                 <div>{{ form.gym }}</div>

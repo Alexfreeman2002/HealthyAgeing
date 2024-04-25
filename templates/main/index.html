@@ -13,7 +13,9 @@
       <h3>Press the title of each news article view the rest of the article</h3>
       {% for article in articles %}
       <div class="news-box content">
+        <div class="button">
         <b><a href="{{ article.link }}">{{ article.title|safe }}</a></b><br>
+        </div>
         <span>{{ article.published|safe }}</span>
         <p>{{ article.summary|safe }}</p>
       </div>

@@ -6,14 +6,18 @@
         <form class="form" method="POST" action="">
             <h1>Question Three</h1>
                 {{ form.csrf_token }}
+            <div id="speak">
                     What is your gender?
                     <div>
                         <br>
                         {{ form.options }}
                         <br>
                     </div>
+            </div>
                 <div>{{ form.submit }}</div>
         </form>
+        <button class="news corner-button" onclick=speakText('speak')>
+            <img src="/static/resources/speaker.svg" alt="Speaker"></button>
         </div>
     </div>
 {% endblock %}

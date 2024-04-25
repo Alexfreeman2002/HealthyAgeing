@@ -8,7 +8,9 @@
         {% for article in articles %}
           <div class="news-box content">
             <div id="article-{{loop.index}}">
+              <div class="button">
             <b><a href="{{ article.link }}">{{ article.title|safe }} </a></b><br>
+                </div>
             <span>{{ article.published|safe }}</span>
             <p>{{ article.summary|safe }}</p>
             </div>
