@@ -15,22 +15,19 @@ def calories():
     return render_template("features/calories/question1.html", form=form, alert_message=request.args.get('alert'))
 
 def height_inch(Height, choice):
-    #makes their input uppercase
-    choice = choice.upper()
-    if choice == "CM":
+    if choice == "cm":
         #returns height in inches
         return Height/2.54
-    elif choice == "FEET":
+    elif choice == "feet":
         #returns height in inches
         return Height*12
 
 
 def weight_lbs(Weight, choice):
-    choice = choice.upper()
-    if choice == "KG":
+    if choice == "kg":
         # returns weight in lbs
         return Weight*2.205
-    elif choice == "LBS":
+    elif choice == "lbs":
         # returns weight in lbs
         return Weight
 
@@ -60,6 +57,7 @@ def Q2():
 def Q3():
     form = QuestionThree()
     if form.validate_on_submit():
+        # adds activity level to list
         values.insert(2, form.options.data)
         return redirect("/cfour")
     return render_template("features/calories/question3.html", form=form)
@@ -68,6 +66,7 @@ def Q3():
 def Q4():
     form = QuestionFour()
     if form.validate_on_submit():
+        #adds gender to list
         values.insert(3, form.options.data)
         return redirect("/cfive")
     return render_template("features/calories/question4.html", form=form)
@@ -80,21 +79,26 @@ def Q5():
         return redirect("/cresult")
     return render_template("features/calories/question5.html", form=form)
 
+def calulate_TDEE(weight, height, age, gender, activity):
+    if gender == 'm':
+        BMR =  (66 + float(6.3*float(weight)) + float(12.9*float(height)) - float(6.8 * float(age)))
+        cals = BMR * float(activity)
+    elif gender == 'f':
+        BMR = (655 + float(4.3 * float(weight)) + float(4.7 * float(height)) - float(4.7 * float(age)))
+        cals = BMR * float(activity)
+    else:
+        m = (66 + float(6.3 * float(weight)) + float(12.9 * float(height)) - float(6.8 * float(age)))
+        f = (655 + float(4.3 * float(weight)) + float(4.7 * float(height)) - float(4.7 * float(age)))
+        BMR = (m+f)/2
+        cals = BMR * float(activity)
+    deficit = round(cals) * 0.8
+    gain = round(cals) * 1.2
+    return round(cals), round(deficit), round(gain)
+
 @calorie_blueprint.route('/cresult', methods=['get', 'post'])
 def calorie_result():
     if len(values) != 5:
         return redirect(url_for('calorie.calories', alert='Please press ok to restart the set of questions'))
-    if values[3] == 'm':
-        BMR =  (66 + float(6.3*float(values[0])) + float(12.9*float(values[1])) - float(6.8 * float(values[4])))
-        cals = BMR * float(values[2])
-    elif values[3] == 'f':
-        BMR = (655 + float(4.3 * float(values[0])) + float(4.7 * float(values[1])) - float(4.7 * float(values[4])))
-        cals = BMR * float(values[2])
-    else:
-        m = (66 + float(6.3 * float(values[0])) + float(12.9 * float(values[1])) - float(6.8 * float(values[4])))
-        f = (655 + float(4.3 * float(values[0])) + float(4.7 * float(values[1])) - float(4.7 * float(values[4])))
-        BMR = (m+f)/2
-        cals = BMR * float(values[2])
-    deficit = cals*0.8
-    gain = cals*1.2
-    return render_template("features/calories/result.html", calories=round(cals), deficit=round(deficit), gain=round(gain))
+    cals, deficit, gain = calulate_TDEE(values[0], values[1], values[4], values[3], values[2])
+    return render_template("features/calories/result.html", calories=cals, deficit=deficit, gain=gain)
+

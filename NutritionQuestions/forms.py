@@ -9,7 +9,6 @@ class QuestionOne(FlaskForm):
 class QuestionTwo(FlaskForm):
     submit = SubmitField('Submit')
 
-
 class QuestionThree(FlaskForm):
     submit = SubmitField("Submit")
 
