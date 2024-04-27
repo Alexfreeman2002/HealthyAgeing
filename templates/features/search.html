@@ -24,7 +24,7 @@
         </div>
 
         {% if search_term != null %}
-            <div class="container results">
+            <div class="container results" id="speak">
                 <h1>Results from NHS: {{ search_term|capitalize }}</h1>
                 <div>
                     {% if is_successful %}
@@ -39,6 +39,8 @@
                         {% endfor %}
                     {% endif %}
                 </div>
+                <button class="news corner-button" onclick=speakText('speak')>
+            <img src="/static/resources/speaker.svg" alt="Speaker"></button>
             </div>
         {% endif %}
 

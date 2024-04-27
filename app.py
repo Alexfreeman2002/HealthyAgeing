@@ -1,7 +1,4 @@
-import os
 from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
-from dotenv import load_dotenv
 from flask_talisman import Talisman
 import feedparser
 from datetime import datetime
