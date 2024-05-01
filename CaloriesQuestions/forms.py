@@ -5,9 +5,8 @@ This file defines Flask forms for each question within the calorie calculator
 """
 
 from flask_wtf import FlaskForm
-from wtforms import widgets, StringField, SelectField, SubmitField, SelectMultipleField, BooleanField, RadioField, FloatField
+from wtforms import StringField, SubmitField, RadioField
 from wtforms.validators import DataRequired, ValidationError
-import re
 
 class QuestionOne(FlaskForm):
     yes = SubmitField('Continue')

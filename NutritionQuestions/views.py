@@ -13,7 +13,6 @@ def meal_plan():
         return redirect("/mtwo")
     if form.no.data:
         return redirect("/")
-
     return render_template("features/nutritionQs/question1.html", form=form, alert_message=request.args.get('alert'))
 
 @meal_blueprint.route('/mtwo', methods=['get','post'])

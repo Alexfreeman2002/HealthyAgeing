@@ -42,7 +42,7 @@ def Q2():
         # gets the value for the height and weight from the form, making them a float type
         H = float(form.height.data)
         W = float(form.weight.data)
-        # calls the functions to return the height in metres and weight in kg so this can be saved in the database
+
         weight = weight_lbs(W, w_choice)
         height = height_inch(H, h_choice)
         # adds the values to the list
@@ -81,16 +81,14 @@ def Q5():
 
 def calulate_TDEE(weight, height, age, gender, activity):
     if gender == 'm':
-        BMR =  (66 + float(6.3*float(weight)) + float(12.9*float(height)) - float(6.8 * float(age)))
-        cals = BMR * float(activity)
+        BMR =  (66 + 6.3*float(weight) + 12.9*float(height) - 6.8*float(age))
     elif gender == 'f':
-        BMR = (655 + float(4.3 * float(weight)) + float(4.7 * float(height)) - float(4.7 * float(age)))
-        cals = BMR * float(activity)
+        BMR = (655 + 4.3 * float(weight) + 4.7 * float(height) - 4.7 * float(age))
     else:
-        m = (66 + float(6.3 * float(weight)) + float(12.9 * float(height)) - float(6.8 * float(age)))
-        f = (655 + float(4.3 * float(weight)) + float(4.7 * float(height)) - float(4.7 * float(age)))
+        m = (66 + 6.3 * float(weight) + 12.9 * float(height) - 6.8 * float(age))
+        f = (655 + 4.3 * float(weight) + 4.7 * float(height) - 4.7 * float(age))
         BMR = (m+f)/2
-        cals = BMR * float(activity)
+    cals = BMR * float(activity)
     deficit = round(cals) * 0.8
     gain = round(cals) * 1.2
     return round(cals), round(deficit), round(gain)
