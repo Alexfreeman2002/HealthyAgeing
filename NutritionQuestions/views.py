@@ -40,49 +40,63 @@ def meal_result():
     if choices[0] <= "3":
         water = "Please ensure you are drinking at least 3 litres of water per day"
     else:
-        water= "Well done, ensure you continue drinking 3 or more litres of water per day"
+        water = "Well done, ensure you continue drinking 3 or more litres of water per day"
     if len(choices[1]) >=3:
-        meal, recipe = read_csv('static/csv/meals/all.csv')
-        return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water)
+        file = 'static/csv/meals/all.csv'
+        meal, recipe = read_csv(file)
+
     if (choices[1][0]) == "none":
-        meal, recipe = read_csv('static/csv/meals/none.csv')
-        return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water)
+        file = 'static/csv/meals/none.csv'
+        meal, recipe = read_csv(file)
+
     if 'gluten' in choices[1] or 'keto' in choices[1]:
         if 'nut' in choices[1]:
-            meal, recipe = read_csv('static/csv/meals/n_gk.csv')
-            return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water)
+            file = 'static/csv/meals/n_gk.csv'
+            meal, recipe = read_csv(file)
+
         elif 'vegan' in choices[1] or 'lactose' in choices[1]:
-            meal, recipe = read_csv('static/csv/meals/vl_gk.csv')
-            return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water)
+            file = 'static/csv/meals/vl_gk.csv'
+            meal, recipe = read_csv(file)
+
         elif 'veg' in choices[1]:
-            meal, recipe = read_csv('static/csv/meals/gk_veg.csv')
-            return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water)
+            file = 'static/csv/meals/gk_veg.csv'
+            meal, recipe = read_csv(file)
+
         elif 'pesc' in choices[1]:
-            meal, recipe = read_csv('static/csv/meals/gk_p.csv')
-            return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water)
-        meal, recipe = read_csv('static/csv/meals/gk.csv')
-        return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water)
+            file = 'static/csv/meals/gk_p.csv'
+            meal, recipe = read_csv(file)
+        else:
+            file = 'static/csv/meals/gk.csv'
+            meal, recipe = read_csv(file)
+
     elif 'vegan' in choices[1] or 'lactose' in choices[1]:
         if 'nut' in choices[1]:
-            meal, recipe = read_csv('static/csv/meals/n_vl.csv')
-            return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water)
-        meal, recipe = read_csv('static/csv/meals/vl.csv')
-        return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water)
+            file = 'static/csv/meals/n_vl.csv'
+            meal, recipe = read_csv(file)
+        else:
+            file = 'static/csv/meals/vl.csv'
+            meal, recipe = read_csv(file)
+
 
     elif 'veg' in choices[1]:
         if 'nut' in choices[1]:
-            meal, recipe = read_csv('static/csv/meals/n_veg.csv')
-            return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water)
+            file = 'static/csv/meals/n_veg.csv'
+            meal, recipe = read_csv(file)
+        else:
+            file = 'static/csv/meals/veg.csv'
+            meal, recipe = read_csv(file)
 
-        meal, recipe = read_csv('static/csv/meals/veg.csv')
-        return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water)
     elif 'nut' in choices[1]:
         if 'pesc' in choices[1]:
-            meal, recipe = read_csv('static/csv/meals/n_p.csv')
-            return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water)
-        meal, recipe = read_csv('static/csv/meals/nut.csv')
-        return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water)
+            file = 'static/csv/meals/n_p.csv'
+            meal, recipe = read_csv(file)
+        else:
+            file = 'static/csv/meals/nut.csv'
+            meal, recipe = read_csv(file)
+
 
     elif 'pesc' in choices[1]:
-        meal, recipe = read_csv('static/csv/meals/pesc.csv')
-        return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water)
+        file = 'static/csv/meals/pesc.csv'
+        meal, recipe = read_csv(file)
+
+    return render_template("features/nutritionQs/result.html", meal=meal, recipe=recipe, water=water, file=file)

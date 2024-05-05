@@ -95,96 +95,97 @@ def result():
         return redirect(url_for('fitness.fitness_plan', alert='Please press ok to restart the set of questions'))
     if route[3] == 'home':
         if route[4] == 'frail':
-            plan, instructions = read_csv('static/csv/beginner/h_beg.csv')
-            return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+            file = 'static/csv/beginner/h_beg.csv'
+            plan, instructions = read_csv(file)
         if route[1] == 'lose':
             #more cardio
             if int(route[2]) <= 3:
                 #beginner
-                plan, instructions = read_csv('static/csv/beginner/h_c_beg.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/beginner/h_c_beg.csv'
+                plan, instructions = read_csv(file)
             elif int(route[2]) < 8:
                 #intermediate
-                plan, instructions = read_csv('static/csv/intermediate/h_c_int.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/intermediate/h_c_int.csv'
+                plan, instructions = read_csv(file)
             if int(route[2]) > 7:
                 #advanced
-                plan, instructions = read_csv('static/csv/advanced/h_c_adv.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/advanced/h_c_adv.csv'
+                plan, instructions = read_csv(file)
         elif route[1] == 'gain':
             #less cardio
             if int(route[2]) <= 3:
                 #beginner
-                plan, instructions = read_csv('static/csv/beginner/h_nc_beg.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/beginner/h_nc_beg.csv'
+                plan, instructions = read_csv(file)
             elif int(route[2]) < 8:
                 #intermediate
-                plan, instructions = read_csv('static/csv/intermediate/h_nc_int.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/intermediate/h_nc_int.csv'
+                plan, instructions = read_csv(file)
             if int(route[2]) > 7:
                 #advanced
-                plan, instructions = read_csv('static/csv/advanced/h_nc_adv.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/advanced/h_nc_adv.csv'
+                plan, instructions = read_csv(file)
         else:
             #average cardio
             if int(route[2]) <= 3:
                 #beginner
-                plan, instructions = read_csv('static/csv/beginner/h_beg.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/beginner/h_beg.csv'
+                plan, instructions = read_csv(file)
             elif int(route[2]) < 8:
                 #intermediate
-                plan, instructions = read_csv('static/csv/intermediate/h_int.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/intermediate/h_int.csv'
+                plan, instructions = read_csv(file)
             if int(route[2]) > 7:
                 #advanced
-                plan, instructions = read_csv('static/csv/advanced/h_adv.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/advanced/h_adv.csv'
+                plan, instructions = read_csv(file)
 
     elif route[3] == 'gym':
         if route[4] == 'frail':
-            plan, instructions = read_csv('static/csv/beginner/g_beg.csv')
-            return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+            file = 'static/csv/beginner/g_beg.csv'
+            plan, instructions = read_csv(file)
         if route[1] == 'lose':
             #more cardio
             if int(route[2]) <= 3:
                 #beginner
-                plan, instructions = read_csv('static/csv/beginner/g_c_beg.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/beginner/g_c_beg.csv'
+                plan, instructions = read_csv(file)
             elif int(route[2]) < 8:
                 #intermediate
-                plan, instructions = read_csv('static/csv/intermediate/g_c_int.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/intermediate/g_c_int.csv'
+                plan, instructions = read_csv(file)
             if int(route[2]) > 7:
                 #advanced
-                plan, instructions = read_csv('static/csv/advanced/g_c_adv.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/advanced/g_c_adv.csv'
+                plan, instructions = read_csv(file)
         elif route[1] == 'gain':
             #less cardio
             if int(route[2]) <= 3:
                 #beginner
-                plan, instructions = read_csv('static/csv/beginner/g_nc_beg.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/beginner/g_nc_beg.csv'
+                plan, instructions = read_csv(file)
+
             elif int(route[2]) < 8:
                 #intermediate
-                plan, instructions = read_csv('static/csv/intermediate/g_nc_int.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/intermediate/g_nc_int.csv'
+                plan, instructions = read_csv(file)
             if int(route[2]) > 7:
                 #advanced
-                plan, instructions = read_csv('static/csv/advanced/g_nc_adv.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/advanced/g_nc_adv.csv'
+                plan, instructions = read_csv(file)
         else:
             #average cardio
             if int(route[2]) <= 3:
                 #beginner
-                plan, instructions = read_csv('static/csv/beginner/g_beg.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/beginner/g_beg.csv'
+                plan, instructions = read_csv(file)
             elif int(route[2]) < 8:
                 #intermediate
-                plan, instructions = read_csv('static/csv/intermediate/g_int.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/intermediate/g_int.csv'
+                plan, instructions = read_csv(file)
             if int(route[2]) > 7:
                 #advanced
-                plan, instructions = read_csv('static/csv/advanced/g_adv.csv')
-                return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions)
+                file = 'static/csv/advanced/g_adv.csv'
+                plan, instructions = read_csv(file)
 
-    return render_template("features/fitnessQs/result.html")
+    return render_template("features/fitnessQs/result.html", plan=plan, instructions=instructions, file=file)

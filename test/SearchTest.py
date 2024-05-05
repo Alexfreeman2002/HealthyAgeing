@@ -49,14 +49,12 @@ class TestSearch(unittest.TestCase):
         expected_result = read_expected_result(expected_result_file)
 
         # Perform the search and retrieve data from the website
-        success, result = nhs.search_website(term)
+        result = nhs.search_website(term)
         result = nhs.retrieve_data(term)
 
         # Ensures both variables are of the same time before comparison
         result = str(result)
         expected_result = str(expected_result)
-
-        print(success, result, expected_result)
 
         # Compare the expected result with the actual result as strings
         self.assertEqual(expected_result, result)

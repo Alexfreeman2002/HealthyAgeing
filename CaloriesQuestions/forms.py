@@ -5,7 +5,7 @@ This file defines Flask forms for each question within the calorie calculator
 """
 
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, RadioField
+from wtforms import StringField, SubmitField, RadioField, FloatField
 from wtforms.validators import DataRequired, ValidationError
 
 class QuestionOne(FlaskForm):
@@ -14,34 +14,35 @@ class QuestionOne(FlaskForm):
 
 class QuestionTwo(FlaskForm):
 
-
     #makes sure the input is a float field and within a range, gives an error message if not
     def check_height_input(self, field):
         try:
             float(field.data)
         except:
-            raise ValidationError("Value must be a float or integer")
+            raise ValidationError("You have entered a value that isn't a number")
 
         if float(field.data) > 275:
             raise ValidationError("Value is too high.")
         elif float(field.data) < 0:
             raise ValidationError("Please enter a positive number")
 
+
+
     #makes sure the input is a float field and within a range, gives an error message if not
     def check_weight_input(self, field):
         try:
             float(field.data)
         except:
-            raise ValidationError("You have entered a value must that is too large or it isn't a number")
+            raise ValidationError("You have entered a value that isn't a number")
 
         if float(field.data) > 1500:
             raise ValidationError("Value is too high.")
         elif float(field.data) < 0:
             raise ValidationError("Please enter a positive number")
 
-
     # declaration and validation for each input field
     height = StringField(validators=[DataRequired(), check_height_input])
+    inches = FloatField()
     hoptions = RadioField('Options', choices=[('cm','Centimeters'),('feet', 'Feet')], default='cm')
     weight = StringField(validators=[DataRequired(), check_weight_input])
     woptions = RadioField('Options', choices=[('kg', 'Kilograms'),('lbs', 'Pounds')], default='kg')

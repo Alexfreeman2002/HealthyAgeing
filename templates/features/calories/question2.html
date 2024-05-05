@@ -24,9 +24,19 @@
                         {{ form.csrf_token() }}
                         <div>
                             {{ form.height.label }} {{ form.height(class="input", placeholder="Height") }}
+                            <div class="error-message">
                             {% for error in form.height.errors %}
                                 {{ error }}
                             {% endfor %}
+                                </div>
+                        </div>
+                        <div id="inches" style="display: none;">
+                            {{ form.inches.label }} {{ form.inches(class="input", placeholder="Inches") }}
+                            <div class="error-message">
+                            {% for error in form.inches.errors %}
+                                {{ error }}
+                            {% endfor %}
+                                </div>
                         </div>
                         <br>
                         <div>
@@ -53,4 +63,17 @@
             {% endif %}
         </div>
     </div>
+<script>
+    var feetInput = document.getElementById('inches');
+    var hOptions = document.getElementsByName('hoptions');
+    for (var i = 0; i < hOptions.length; i++) {
+        hOptions[i].onchange = function() {
+            if (this.value === 'feet') {
+                feetInput.style.display = 'block';
+            } else {
+                feetInput.style.display = 'none';
+            }
+        };
+    }
+</script>
 {% endblock %}

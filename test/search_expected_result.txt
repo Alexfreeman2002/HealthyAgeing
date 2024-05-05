@@ -2,11 +2,8 @@
 <div>
 <div>
 <section>
-<p><b>Most headaches go away on their own and are not a sign of something more serious.</b></p>
-</section>
-<section>
 <h2>How you can ease headaches yourself</h2>
-<p>Headaches can last between 30 minutes and several hours.</p>
+<p>Headaches can last 30 minutes, several hours, or sometimes several days.</p>
 <div>
 <h3>
     Do
@@ -84,7 +81,7 @@
 <span></span>
 </div>
 <div>
-<p>You or your child has a severe headache and:</p><ul><li>jaw pain when eating</li><li>blurred or double vision</li><li>a sore scalp</li><li>other symptoms, such as numbness or weakness in the arms or legs</li></ul><p>Also get an urgent GP appointment or call 111 if your child is under 12 and has any 1 of the following:</p><ul><li>a headache that wakes them at night</li><li>a headache when they wake up in the morning</li><li>a headache that gets progressively worse</li><li>a headache triggered or made worse by coughing, sneezing or bending down</li><li>a headache with vomiting</li><li>a headache with a <a>squint</a> (where the eyes point in different directions) or an inability to look upward</li></ul><p>You can <a>call 111</a> or <a>get help from 111 online</a>.</p>
+<p>You or your child has a severe headache and:</p><ul><li>jaw pain when eating</li><li>blurred or double vision</li><li>a sore scalp</li><li>other symptoms, such as numbness or weakness in the arms or legs</li></ul><p>Also get an urgent GP appointment or call 111 if your child is under 12 and has any 1 of the following:</p><ul><li>a headache that wakes them at night</li><li>a headache when they wake up in the morning</li><li>a headache that gets progressively worse</li><li>a headache triggered or made worse by coughing, sneezing or bending down</li><li>a headache with vomiting</li><li>a headache with a <a>squint</a> (where the eyes point in different directions) or an inability to look upward</li></ul><p>You can call 111 or <a>get help from 111 online</a>.</p>
 </div>
 </div>
 </section>
@@ -105,12 +102,12 @@
 </section>
 <section>
 <h2>What can cause headaches</h2>
-<p>The most common reasons are:</p><ul><li>having a <a>cold</a> or <a>flu</a></li><li>stress</li><li>drinking too much alcohol</li><li>bad posture</li><li>eyesight problems</li><li>not eating regular meals</li><li>not drinking enough fluids (dehydration)</li><li>taking too many painkillers</li><li>having your period or during menopause</li></ul>
+<p>Common causes of headaches include:</p><ul><li>having a <a>cold</a> or <a>flu</a></li><li>stress</li><li>drinking too much alcohol</li><li>bad posture</li><li>eyesight problems</li><li>not eating regular meals</li><li>not drinking enough fluids (dehydration)</li><li>taking too many painkillers</li><li>having your period or during menopause</li></ul>
 </section>
 <div>
 <p>
-    Page last reviewed: 09 February 2021<br/>
-    Next review due: 09 February 2024
+    Page last reviewed: 17 April 2024<br/>
+    Next review due: 17 April 2027
   </p>
 </div>
 </div>
