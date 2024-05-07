@@ -48,9 +48,11 @@
                     <div>
                         <div>
                             {{ form.weight.label }} {{ form.weight(class="input", placeholder="Weight") }}
-                            {% for error in form.weight.errors %}
+                            <div class="error-message">
+                                {% for error in form.weight.errors %}
                                 {{ error }}
                             {% endfor %}
+                            </div>
                         </div>
                         <br>
                         <div>
