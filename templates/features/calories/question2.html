@@ -22,21 +22,16 @@
                 <form  class="form" method="post">
                     <div>
                         {{ form.csrf_token() }}
-                        <div>
-                            {{ form.height.label }} {{ form.height(class="input", placeholder="Height") }}
-                            <div class="error-message">
-                            {% for error in form.height.errors %}
-                                {{ error }}
-                            {% endfor %}
-                                </div>
+                        <div id="cm" style="display: block;">
+                            <label for="cm">Centimetres:</label>
+                            <input type="text" id="cm" name="cm" placeholder="Centimetres">
                         </div>
                         <div id="inches" style="display: none;">
-                            {{ form.inches.label }} {{ form.inches(class="input", placeholder="Inches") }}
-                            <div class="error-message">
-                            {% for error in form.inches.errors %}
-                                {{ error }}
-                            {% endfor %}
-                                </div>
+                            <label for="feet">Feet:</label>
+                            <input type="text" id="feet" name="feet" placeholder="Feet">
+                            <br>
+                            <label for="inches">Inches:</label>
+                            <input type="text" id="inches" name="inches" placeholder="Inches">
                         </div>
                         <br>
                         <div>
@@ -67,15 +62,21 @@
     </div>
 <script>
     var feetInput = document.getElementById('inches');
+    var cmInput = document.getElementById('cm');
     var hOptions = document.getElementsByName('hoptions');
     for (var i = 0; i < hOptions.length; i++) {
-        hOptions[i].onchange = function() {
-            if (this.value === 'feet') {
-                feetInput.style.display = 'block';
-            } else {
-                feetInput.style.display = 'none';
-            }
-        };
-    }
+    hOptions[i].onchange = function() {
+        if (this.value === 'feet') {
+            feetInput.style.display = 'block';
+            cmInput.style.display = 'none'; // Hide cmInput when feet is selected
+        } else if (this.value === 'cm') {
+            feetInput.style.display = 'none'; // Hide feetInput when cm is selected
+            cmInput.style.display = 'block';
+        } else {
+            feetInput.style.display = 'none';
+            cmInput.style.display = 'none';
+        }
+    };
+}
 </script>
 {% endblock %}

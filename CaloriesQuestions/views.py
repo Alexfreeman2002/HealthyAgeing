@@ -39,17 +39,19 @@ def Q2():
         # gets the units for the height and weight from the form
         h_choice = form.hoptions.data
         w_choice = form.woptions.data
-
         # gets the value for the height and weight from the form, making them a float type
-        H = float(form.height.data)
+
         W = float(form.weight.data)
 
         weight = weight_lbs(W, w_choice)
         if h_choice == 'feet':
-            inches = float(form.inches.data)
-            height = height_inch(H, h_choice) + inches
-        else:
-            height = height_inch(H, h_choice)
+            feet = float(request.form.get('feet'))
+            print(feet)
+            inches = float(request.form.get('inches'))
+            height = height_inch(feet, h_choice) + inches
+        elif h_choice == 'cm':
+            cm = float(request.form.get('cm'))
+            height = height_inch(cm, h_choice)
         # adds the values to the list
         values.insert(0,weight)
         values.insert(1,height)

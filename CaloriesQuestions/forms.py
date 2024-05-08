@@ -41,9 +41,7 @@ class QuestionTwo(FlaskForm):
             raise ValidationError("Please enter a positive number")
 
     # declaration and validation for each input field
-    height = StringField(validators=[DataRequired(), check_height_input])
-    inches = FloatField()
-    hoptions = RadioField('Options', choices=[('cm','Centimeters'),('feet', 'Feet')], default='cm')
+    hoptions = RadioField('Options', choices=[('cm','Centimetres'),('feet', 'Feet')], default='cm')
     weight = StringField(validators=[DataRequired(), check_weight_input])
     woptions = RadioField('Options', choices=[('kg', 'Kilograms'),('lbs', 'Pounds')], default='kg')
     submit = SubmitField('Submit')
