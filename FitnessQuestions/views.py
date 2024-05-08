@@ -84,6 +84,7 @@ def read_csv(file_name):
             # Append the row to the arrays list
             plan.append(row)
 
+        # ignore the first two values of each line in the csv file
         instructions = [subarray[2:] for subarray in plan]
 
     return plan, instructions
